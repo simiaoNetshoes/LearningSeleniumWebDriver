@@ -7,8 +7,8 @@ pipeline{
            steps{
                withMaven(maven: 'maven-3.5.4'){
                     sh 'MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin'
-                    sh 'cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin'
-                    sh 'sudo $MAVEN_PATH/mvn clean compile'
+                     'cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin'
+                     'sudo $MAVEN_PATH/mvn clean compile'
                 }
             }
         }
@@ -17,8 +17,8 @@ pipeline{
             steps{
                 withMaven(maven: 'maven-3.5.4'){
                     sh 'MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin'
-                    sh 'cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin'
-                    sh 'sudo $MAVEN_PATH/mvn test'
+                     'cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin'
+                     'sudo $MAVEN_PATH/mvn test'
                 }
             }
         }
@@ -27,8 +27,8 @@ pipeline{
             steps{
                 withMaven(maven: 'maven-3.5.4'){
                     sh 'MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin'
-                    sh 'cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin'
-                    sh 'sudo $MAVEN_PATH/mvn deploy'
+                     'cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin'
+                     'sudo $MAVEN_PATH/mvn deploy'
                 }
             }
         }
