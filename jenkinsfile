@@ -3,13 +3,29 @@ pipeline{
 
     stages{
 
+         def mvnHome = tool 'maven-3.5.4'
+              stage("Build package") {
+                   withMaven(maven: 'maven-3.5.3'){
 
-      def mvnHome = tool 'maven-3.5.4'
-      stage("Build package") {
-           withMaven(
-             maven: 'maven-3.5.3'){
-             }
-           sh "cd $mvnHome/bin/mvn clean test"
-         }
+                   sh "cd $mvnHome/bin/mvn clean test"
+                 }
+               }
+
+        stage('Test Stage'){
+            steps{
+                withMaven(maven: 'maven-3.5.4'){
+                    sh  "mvn test"
+
+                }
+            }
+        }
+
+        stage('Deploy Stage'){
+            steps{
+                withMaven(maven: 'maven-3.5.4'){
+                    sh  "mvn deploy"
+                }
+            }
+        }
     }
 }
