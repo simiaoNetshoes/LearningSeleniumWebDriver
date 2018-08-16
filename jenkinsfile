@@ -8,7 +8,6 @@ pipeline{
                withMaven(maven: 'maven-3.5.4'){
              sh  """
                     MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                    cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin \\
                     sudo $MAVEN_PATH/mvn compile
                 """
                 }
@@ -20,7 +19,6 @@ pipeline{
                 withMaven(maven: 'maven-3.5.4'){
                     sh  """
                         MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                        cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin \\
                         sudo $MAVEN_PATH/mvn test
                         """
                 }
@@ -32,7 +30,6 @@ pipeline{
                 withMaven(maven: 'maven-3.5.4'){
                   sh  """
                      MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                     cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin \\
                      sudo $MAVEN_PATH/mvn deploy
                      """
                 }
