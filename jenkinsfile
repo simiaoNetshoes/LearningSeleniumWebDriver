@@ -6,7 +6,7 @@ pipeline{
         stage('Compile Project Stage'){
            steps{
                withMaven(maven: 'maven-3.5.4'){
-                    sh "mvn compile"
+                    sh 'mvn compile'
                 }
             }
         }
