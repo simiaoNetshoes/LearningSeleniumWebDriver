@@ -3,27 +3,35 @@ pipeline{
 
     stages{
 
-        stage('Compile Project Stage'){
+        stage('Compile Stage'){
            steps{
                withMaven(maven: 'maven-3.5.4'){
-                    sh """ MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin //
-                        $MAVEN_PATH/sudo mvn compile ""
+                sh  """
+                        cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                        mvn compile
+                    """
                 }
             }
         }
 
-        stage('Test Project Stage'){
+        stage('Test Stage'){
             steps{
                 withMaven(maven: 'maven-3.5.4'){
-                    sh "mvn test"
+                    sh  """
+                            cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                            mvn test
+                        """
                 }
             }
         }
 
-        stage('Deploy Project Stage'){
+        stage('Deploy Stage'){
             steps{
                 withMaven(maven: 'maven-3.5.4'){
-                    sh "mvn deploy"
+                  sh  """
+                            cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                            mvn deploy
+                     """
                 }
             }
         }
