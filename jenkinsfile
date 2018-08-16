@@ -2,15 +2,12 @@ pipeline{
     agent any
 
     stages{
-        def mvn_version = 'M3'
-            withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-                //sh "mvn clean package"
-            }
+
         stage('Compile Stage'){
            steps{
-               def mvn_version = 'maven-3.5.4'
-               withMaven(["PATH+MAVEN=${tool mvn_version}/bin"]){
+               withMaven(maven: 'maven-3.5.4'){
                 sh  """
+                        cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
                         mvn compile
                     """
                 }
@@ -21,6 +18,7 @@ pipeline{
             steps{
                 withMaven(maven: 'maven-3.5.4'){
                     sh  """
+                            cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
                             mvn test
                         """
                 }
@@ -31,11 +29,11 @@ pipeline{
             steps{
                 withMaven(maven: 'maven-3.5.4'){
                   sh  """
+                            cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
                             mvn deploy
                      """
                 }
             }
         }
-
     }
 }
