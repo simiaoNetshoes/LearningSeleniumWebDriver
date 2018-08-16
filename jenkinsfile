@@ -7,12 +7,34 @@ pipeline{
            steps{
                withMaven(maven: 'maven-3.5.4'){
              sh  """
-                    MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                    cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin \\
-                    sudo $MAVEN_PATH/mvn compile
+                    cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                    sudo mvn compile
                 """
                 }
             }
         }
+
+        stage('Test Stage'){
+            steps{
+                withMaven(maven: 'maven-3.5.4'){
+                    sh  """
+                        cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                        sudo mvn test
+                        """
+                }
+            }
+        }
+
+        stage('Deploy Stage'){
+            steps{
+                withMaven(maven: 'maven-3.5.4'){
+                  sh  """
+                     cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                     sudo mvn deploy
+                     """
+                }
+            }
+        }
+
     }
 }
