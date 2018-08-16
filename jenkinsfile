@@ -7,7 +7,7 @@ pipeline{
            steps{
                withMaven(maven: 'maven-3.5.4'){
                     sh """ MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin //
-                        sudo mvn compile ""
+                        $MAVEN_PATH/sudo mvn compile ""
                 }
             }
         }
