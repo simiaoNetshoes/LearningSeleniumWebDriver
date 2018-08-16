@@ -8,33 +8,11 @@ pipeline{
                withMaven(maven: 'maven-3.5.4'){
              sh  """
                     MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                    sudo $MAVEN_PATH/mvn compile \\
+                    cd /Users/danielsimiao/IdeaProjects/ff-qa-AutoTesterAdmin \\
+                    sudo $MAVEN_PATH/mvn compile
                 """
                 }
             }
         }
-
-        stage('Test Stage'){
-            steps{
-                withMaven(maven: 'maven-3.5.4'){
-                    sh  """
-                        MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                        sudo $MAVEN_PATH/mvn test \\
-                        """
-                }
-            }
-        }
-
-        stage('Deploy Stage'){
-            steps{
-                withMaven(maven: 'maven-3.5.4'){
-                  sh  """
-                     MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                     sudo $MAVEN_PATH/mvn deploy \\
-                     """
-                }
-            }
-        }
-
     }
 }
