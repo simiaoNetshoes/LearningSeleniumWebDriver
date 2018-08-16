@@ -8,7 +8,7 @@ pipeline{
                withMaven(maven: 'maven-3.5.4'){
              sh  """
                     MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                    sudo $MAVEN_PATH/mvn compile
+                    sudo $MAVEN_PATH/mvn compile \\
                 """
                 }
             }
@@ -19,7 +19,7 @@ pipeline{
                 withMaven(maven: 'maven-3.5.4'){
                     sh  """
                         MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                        sudo $MAVEN_PATH/mvn test
+                        sudo $MAVEN_PATH/mvn test \\
                         """
                 }
             }
@@ -30,7 +30,7 @@ pipeline{
                 withMaven(maven: 'maven-3.5.4'){
                   sh  """
                      MAVEN_PATH=/Users/danielsimiao/Documents/Maven/apache-maven-3.5.4/bin \\
-                     sudo $MAVEN_PATH/mvn deploy
+                     sudo $MAVEN_PATH/mvn deploy \\
                      """
                 }
             }
