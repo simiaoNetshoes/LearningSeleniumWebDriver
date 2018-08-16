@@ -6,7 +6,7 @@ pipeline{
         stage('Compile Project Stage'){
            steps{
                withMaven(maven: 'maven-3.5.4'){
-                    sh "sudo mvn compile"
+                    sh "mvn compile"
                 }
             }
         }
@@ -14,7 +14,7 @@ pipeline{
         stage('Test Project Stage'){
             steps{
                 withMaven(maven: 'maven-3.5.4'){
-                    sh "sudo mvn test"
+                    sh "mvn test"
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline{
         stage('Deploy Project Stage'){
             steps{
                 withMaven(maven: 'maven-3.5.4'){
-                    sh "sudo mvn deploy"
+                    sh "mvn deploy"
                 }
             }
         }
