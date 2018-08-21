@@ -3,29 +3,38 @@ pipeline{
 
     stages{
 
-         def mvnHome = tool 'maven-3.5.4'
-              stage("Build package") {
-                   withMaven(maven: 'maven-3.5.3'){
-
-                   sh "cd $mvnHome/bin/mvn clean test"
-                 }
-               }
-
-        stage('Test Stage'){
-            steps{
-                withMaven(maven: 'maven-3.5.4'){
-                    sh  "mvn test"
-
+        stage('Compile Project Stage'){
+           steps{
+               withMaven(maven: 'maven-3.5.4'){
+                sh  """
+                        cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                        mvn compile
+                    """
                 }
             }
         }
 
-        stage('Deploy Stage'){
+        stage('Test Projec Stage'){
             steps{
                 withMaven(maven: 'maven-3.5.4'){
-                    sh  "mvn deploy"
+                    sh  """
+                            cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                            mvn test
+                        """
                 }
             }
         }
+
+        stage('Deploy Projec Stage'){
+            steps{
+                withMaven(maven: 'maven-3.5.4'){
+                  sh  """
+                            cd /Users/danielsimiao/IdeaProjects/LearningSeleniumWebDriver \\
+                            mvn deploy
+                     """
+                }
+            }
+        }
+
     }
 }
